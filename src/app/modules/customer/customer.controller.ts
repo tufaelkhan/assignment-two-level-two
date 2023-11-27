@@ -1,12 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from "express";
 import { CustomerServices } from "./customer.service";
+import { customerValidationSchema } from "./customer.validation";
 
 
 const createCustomer = async(req:Request, res:Response) =>{
     try{
         const customer = req.body;
+
+    const {error } = customerValidationSchema.validate(customer)
+
     const result = await CustomerServices.createCustomerIntoDB(customer)
+
+    if(error){
+        res.status(404).json({
+            success: true,
+            message: 'something went wrong',
+            error: error.details,
+        })
+    }
+
     res.status(200).json({
         success: true,
         message: 'customer created successfully',

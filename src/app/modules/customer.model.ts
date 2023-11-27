@@ -19,6 +19,7 @@ const customerSchema = new Schema<TCustomer>({
     password: {
         type: String,
         required: true,
+        select: false
     },
     fullName: {
         firstName: {

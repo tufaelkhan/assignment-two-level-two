@@ -48,6 +48,7 @@ const totalPriceFound = async(userId: string) =>{
     if(result.length > 0){
         return result[0].totalPrice || 0
     }
+    return 0
 }
 
 
