@@ -15,4 +15,4 @@ BCRYPT_SALT_ROUNDS=
  npm run eslint:fix             //eslint esu fix
 ```
 #### This project package use
-    (TypeScript)[https://www.typescriptlang.org/download]
+    (TypeScript)(https://www.typescriptlang.org/download)
