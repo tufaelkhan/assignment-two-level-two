@@ -15,4 +15,12 @@ BCRYPT_SALT_ROUNDS=
  npm run eslint:fix             //eslint esu fix
 ```
 #### This project package use
-    (TypeScript)(https://www.typescriptlang.org/download)
+  TypeScript->  [TypeScript](https://www.typescriptlang.org/download)
+  Express->  [Express](https://expressjs.com/en/starter/hello-world.html)
+  MongoDB->  [MongoDB](https://account.mongodb.com/account/login?n=%2Fv2%2F65204b5a8bd2d3131c13c6e1&nextHash=%23clusters%2Fconnect%3FclusterId%3DCluster0)
+  cors->  [cors](https://www.npmjs.com/package/cors)
+  dotenv->  [dotenv](https://www.npmjs.com/package/dotenv)
+  mongoose->  [mongoose](https://mongoosejs.com/docs/middleware.html)
+  eslint and prettier->  [blog](https://blog.logrocket.com/linting-typescript-eslint-prettier/)
+  joi->  [joi](https://joi.dev/api/?v=17.9.1#defaultsmodifier)
+  bcrypt->  [bcrypt](https://www.npmjs.com/package/bcrypt)
