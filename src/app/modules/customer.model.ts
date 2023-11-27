@@ -2,9 +2,9 @@ import { Schema, model, } from 'mongoose';
 import { TCustomer, TOrders } from './customer/customer.interface';
 
 const orderSchema = new Schema<TOrders>({
-    productName: { type: String},
-    price: { type: Number},
-    quantity: { type: Number},
+    productName: { type: String, required: true},
+    price: { type: Number, required: true},
+    quantity: { type: Number, required: true},
 })
 
 const customerSchema = new Schema<TCustomer>({
@@ -18,7 +18,7 @@ const customerSchema = new Schema<TCustomer>({
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     fullName: {
         firstName: {
@@ -34,14 +34,24 @@ const customerSchema = new Schema<TCustomer>({
     email: {
         type: String, required: true
     },
-    isActive: ['active', 'block'],
-    hobbies: [String],
+    isActive: {
+        type: String,
+        enum: ['active', 'block'],
+        default: 'active'
+    },
+    hobbies: {
+        type: [String],
+        default: [],
+    },
     address: {
         street: { type: String, required: true},
         city: { type: String, required: true},
         country: { type: String, required: true},
     },
-    orders: [orderSchema]
+    orders: {
+        type: [orderSchema],
+        default: []
+    }
 })
 
 export const CustomerModel = model<TCustomer>('Customer', customerSchema)

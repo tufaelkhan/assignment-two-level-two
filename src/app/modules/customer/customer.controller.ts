@@ -2,6 +2,7 @@
 import { Request, Response } from "express";
 import { CustomerServices } from "./customer.service";
 
+
 const createCustomer = async(req:Request, res:Response) =>{
     try{
         const customer = req.body;
