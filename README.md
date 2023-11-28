@@ -20,7 +20,7 @@ http://localhost:5000/api/users/:userId /orders/total-price    // order item tot
 {
   "userId": "987654321",
   "username": "alice_smith",
-  "password": "strongPassword456",
+  "password": "stron456",
   "fullName": {
     "firstName": "Alice",
     "lastName": "Smith"
