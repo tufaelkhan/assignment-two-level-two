@@ -11,8 +11,7 @@ app.use(cors());
 app.use('/api/users', CustomerRoute);
 
 const getData = (req: Request, res: Response) => {
-  const a = 1000;
-  res.send(a);
+  res.send('hello world');
 };
 app.get('/', getData);
 
