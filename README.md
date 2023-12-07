@@ -16,6 +16,14 @@ http://localhost:5000/api/users/:userId /orders/    // orders add api
 http://localhost:5000/api/users/:userId /orders/total-price    // order item total price sum
 
 ```
+### browser Api endpoints
+```
+https://assignment-two-crud.vercel.app/api/users                     // user create and all users
+https://assignment-two-crud.vercel.app/api/users/:userId             // delete and update
+https://assignment-two-crud.vercel.app/api/users/:userId /orders/    // orders add api
+https://assignment-two-crud.vercel.app/api/users/:userId /orders/total-price    // order item total price sum
+
+```
 ### Api Testing data
 ```
 {
