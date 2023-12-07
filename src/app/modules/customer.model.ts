@@ -12,11 +12,13 @@ const orderSchema = new Schema<TOrders>({
 const customerSchema = new Schema<TCustomer>({
     userId: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,

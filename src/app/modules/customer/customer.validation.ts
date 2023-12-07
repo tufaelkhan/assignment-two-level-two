@@ -9,13 +9,13 @@ const orderValidationSchema = Joi.object({
 
 export const customerValidationSchema = Joi.object({
     userId: Joi.required(),
-    username: Joi.string().required().trim().max(30),
-    password: Joi.string().required().trim().max(12),
+    username: Joi.string().required().trim(),
+    password: Joi.string().required().trim(),
     fullName: {
-        firstName: Joi.string().required().trim().max(30),
-        lastName:Joi.string().required().trim().max(30),
+        firstName: Joi.string().required().trim(),
+        lastName:Joi.string().required().trim(),
     },
-    age: Joi.number().required().max(100),
+    age: Joi.number().required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
     isActive: Joi.string().valid('active', 'blocked').default('active'),
     hobbies:Joi.array().items(Joi.string()).default([]),
