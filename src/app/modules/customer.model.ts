@@ -40,9 +40,7 @@ const customerSchema = new Schema<TCustomer>({
         type: String, required: true
     },
     isActive: {
-        type: String,
-        enum: ['active', 'block'],
-        default: 'active'
+        type: Boolean,
     },
     hobbies: {
         type: [String],

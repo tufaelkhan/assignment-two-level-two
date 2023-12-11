@@ -15,7 +15,7 @@ export type TCustomer = {
     },
     age : number;
     email : string;
-    isActive : 'active' | 'block';
+    isActive : boolean;
     hobbies : string[];
     address : {
         street : string;

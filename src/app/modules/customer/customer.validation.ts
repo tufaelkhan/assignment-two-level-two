@@ -17,7 +17,7 @@ export const customerValidationSchema = Joi.object({
     },
     age: Joi.number().required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
-    isActive: Joi.string().valid('active', 'blocked').default('active'),
+    isActive: Joi.boolean(),
     hobbies:Joi.array().items(Joi.string()).default([]),
     address: {
         street: Joi.string().required().trim().max(30),

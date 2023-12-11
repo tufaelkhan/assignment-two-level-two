@@ -24,6 +24,7 @@ const updateCustomer = async(userId: string, customer: TCustomer) =>{
     })
     return result
 }
+
 const deleteCustomer = async(userId: string) =>{
     const result = await CustomerModel.findOneAndDelete({userId})
     return result
@@ -39,7 +40,7 @@ const totalPriceFound = async(userId: string) =>{
         {$unwind: '$orders'},
         {
             $group: {
-                _id: "$orders",
+                _id: null,
                 totalPrice: {$sum: {$multiply: ['$orders.quantity', '$orders.price']}}
 
             }
