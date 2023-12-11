@@ -1,6 +1,7 @@
 ### how to run locally
 * first: clone the application -> give command npm i
-* second: .env file create and node_env, port, database_url and bcrypt_salt_rounds define, mongodb connection.
+* second: .env file create
+* give all required node_env, port, database_url and bcrypt_salt_rounds define, mongodb connection.
 ## live site link -> [liveSite](https://assignment-two-crud.vercel.app)
 ```
 NODE_ENV=
@@ -36,7 +37,7 @@ https://assignment-two-crud.vercel.app/api/users/:userId /orders/total-price    
   },
   "age": 30,
   "email": "alice.smith@example.com",
-  "isActive": "active",
+  "isActive": true,
   "hobbies": ["painting", "hiking", "photography"],
   "address": {
     "street": "456 Oak Avenue",
