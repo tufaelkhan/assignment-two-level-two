@@ -119,7 +119,7 @@ const totalPriceFound = async (req: Request, res: Response) => {
     res.status(200).json({
       success: true,
       message: ' customer orders fetch successfully',
-      data: result,
+      data: {totalPrice:result},
     });
   } catch (err: any) {
     res.status(500).json({

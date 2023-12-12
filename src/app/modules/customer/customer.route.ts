@@ -9,7 +9,7 @@ router.get('/', CustomerController.getAllCustomer)
 router.get('/:userId', CustomerController.getSingleCustomer)
 router.get('/:userId/orders', CustomerController.findCustomerAllOrders)
 router.get('/:userId/orders/total-price', CustomerController.totalPriceFound)
-router.patch('/:userId', CustomerController.updateCustomer)
+router.put('/:userId', CustomerController.updateCustomer)
 router.delete('/:userId', CustomerController.deleteCustomer)
 router.put('/:userId/orders', CustomerController.newOrders)
 

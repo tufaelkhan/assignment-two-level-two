@@ -1,5 +1,13 @@
+import { Model } from "mongoose";
+
 
 export type TOrders = {
+    productName : string;
+    price : number;
+    quantity : number;
+}
+
+export type TOrder = {
     productName : string;
     price : number;
     quantity : number;
@@ -24,3 +32,10 @@ export type TCustomer = {
     },
     orders : TOrders[]
   }
+
+
+ export type CustomerMethods = {
+    isCustomerExists(userId:string): Promise<TCustomer | null>
+  }
+
+export type CustomerCheckModel = Model<TCustomer, Record<string, never>, CustomerMethods>

@@ -1,5 +1,5 @@
 import { Schema, model, } from 'mongoose';
-import { TCustomer, TOrders } from './customer/customer.interface';
+import { CustomerCheckModel, CustomerMethods, TCustomer, TOrders } from './customer/customer.interface';
 import bcrypt from 'bcrypt'
 import config from '../config';
 
@@ -9,7 +9,7 @@ const orderSchema = new Schema<TOrders>({
     quantity: { type: Number, required: true},
 })
 
-const customerSchema = new Schema<TCustomer>({
+const customerSchema = new Schema<TCustomer, CustomerCheckModel, CustomerMethods>({
     userId: {
         type: String,
         required: true,
@@ -57,12 +57,23 @@ const customerSchema = new Schema<TCustomer>({
     }
 })
 
+
 customerSchema.pre('save', async function(next){
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const user = this
     user.password = await bcrypt.hash(user.password, Number(config.bcrypt_salt_rounds));
     next()
 })
+customerSchema.post('save', async function(doc, next){
+    doc.password = ''
+    next()
+})
+
+customerSchema.methods.isCustomerExists = async function(userId:string) {
+    const existingCustomer = CustomerModel.findOne({userId})
+    return existingCustomer
+}
 
 
-export const CustomerModel = model<TCustomer>('Customer', customerSchema)
+
+export const CustomerModel = model<TCustomer, CustomerCheckModel>('Customer', customerSchema)

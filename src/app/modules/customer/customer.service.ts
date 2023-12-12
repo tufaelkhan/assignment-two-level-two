@@ -1,9 +1,12 @@
 import { CustomerModel } from "../customer.model";
-import { TCustomer, TOrders } from "./customer.interface";
+import { TCustomer, TOrder } from "./customer.interface";
 
 
 const createCustomerIntoDB = async(customer: TCustomer) => {
     const result = await CustomerModel.create(customer)
+    // if(await result.isCustomerExists(customer.userId)){
+    //     throw new Error('customer already created')
+    // }
     return result;
 }
 
@@ -53,12 +56,15 @@ const totalPriceFound = async(userId: string) =>{
 }
 
 
-const newOrders = async(userId: string, orders: TOrders) =>{
-    const result = await CustomerModel.updateOne({userId},
-        {$push: {
-            orders: {$each: orders}
-        }}
-        )
+const newOrders = async(userId: string, order: TOrder) =>{
+    const result = await CustomerModel.updateOne(
+        { userId },
+        {
+            $push: {
+                orders: order,
+            },
+        }
+    );
     return result
 }
 
